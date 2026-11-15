@@ -1,6 +1,6 @@
 [{
   "Name": "Candy",
-  "Age": 10,
+  "Age": 27,
   "Quotes": ["You meet these people over and over again or rather you don’t meet them\n because everyone is generically",
           "trying to appeal to the largest number of people", "A certain level of conventional beauty conventional ",
           "beauty mitigates\n that same level of craziness","You just have to forget the possibility of failing.\n The system objectively doesn’t work so you have to",
@@ -30,7 +30,7 @@
 
 {
 "Name": "Jeremy",
-"Age": 10,
+"Age": 24,
 "Quotes": [
           "Radical honesty maybe, I’m weird and funny and alone\n and I’d think I’d finally find someone who’d like ",
           "those differences",
@@ -52,7 +52,7 @@
 
 {
 "Name": "Greg",
-"Age": 10,
+"Age": 25,
 "Quotes": [
     "if I can be honest, I can’t feel the right chemistry here\n but if I’m willing to tell you that then hopefully "
     "that means you’ll believe me when I say\n that I really respect your honesty and I genuinely wish you all the "
@@ -62,7 +62,7 @@
 
 {
 "Name": "Ted",
-"Age": 10,
+"Age": 26,
 "Quotes": [
     "There’s two things to know about F.R.I.E.N.D.S., everything funny you remember was from the first season\n
     when the actors were nobodies with average incomes playing nobodies with average incomes,\n instead of millionaires
@@ -86,7 +86,7 @@
 
 {
 "Name": "Safra",
-"Age": 10,
+"Age": 22,
 "Quotes": [
     "I just tend to assume I’m 100 times worse than everyone else,\n its kind of a depression/anxiety thing I guess.",
     "You can be attractive and independent with a decent job\n and live in an apartment and you’ll still feel\n like a total fucking failure half the time",
@@ -104,7 +104,7 @@
 
 {
 "Name": "Martha",
-"Age": 10,
+"Age": 21,
 "Quotes": [
           "Friendzone. That’s where little dickless losers hang around the chick they wanna screw\n but she obviously
           doesn’t return their feeling or something right?",
@@ -115,7 +115,7 @@
 
 {
 "Name": "Jackson",
-"Age": 10,
+"Age": 29,
 "Quotes": [
           "There is no such thing as normal\n but there is definitely a common experience",
           "They keep telling you to learn some relevant skills and go outside\n go meet someone but they never tell you how",
@@ -127,10 +127,11 @@
 
 {
 "Name": "Flossy",
-"Age": 10,
+"Age": 30,
 "Quotes": [
           "what if your carefully crafted persona\n came at the expense of developing practical skills",
           "You’ve had to learn to live with the knowledge\n that all this will over and all you can do is desperately\n try to make ripples in the water"
 ]
 }
+
 ]
