@@ -1,6 +1,7 @@
-use std::{io::{self, Write}, thread, time::Duration};
+use std::{io::{self, Write, BufReader}, thread, time::Duration};
 use serde::{Serialize, Deserialize};
-use serde_json::from_str;
+use std::fs::File;
+use std::error::Error;
 
 const DELAY: Duration = Duration::from_millis(75);
 
@@ -28,19 +29,25 @@ fn random_select(){
     todo!();
 }
 
-fn get_json(){
-    let json = std::fs::read_to_string("Characters.json");
-    let characters = serde_json::from_str::<Person>(json);
+//finally working!!
+fn get_json(name: &str) -> Result<Vec<Person>, Box<dyn Error>>{
+    //Load and open json file
+    // read it through a buffer so that i can be parsed through a vector of "Person" structs
+    let file = File::open(name)?;
+    let json = BufReader::new(file);
 
-    if characters.is_ok(){
-        slow_type("{:#?}", characters.ok().unwrap());
-    }
-    else{
-        print!("{:#?}", characters.err());
-    }
+    let people: Vec<Person> = serde_json::from_reader(json)?;
+
+    //assumed that value passed without error
+     Ok(people)
 }
 
 
 fn main() {
-    slow_type("Hello World!!");
+    // slow_type("Hello World!!");
+
+    //return all values
+    let data = get_json("Characters.json");
+
+    println!("{data:#?}")
 }
