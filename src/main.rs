@@ -92,15 +92,15 @@ fn get_json(name: &str) -> Result<Vec<Person>, Box<dyn Error>>{
      Ok(people)
 }
 
-
+fdsafdsaf
 fn main() -> Result<(), Box<dyn Error>> {
     let people = get_json("Characters.json")?;
 
     let person = random_person(&people).ok_or("no characters loaded")?;
-    let quote = random_quote(person).ok_or("that character has no quotes")?;
-
+    let quote = random_quote(person).ok_or("sgfdsgfdsgfdsg character has no quotes")?;
+gfdsgfd
     println!("\nHey i'm {} been here for about {} years and i just wanna tell you", person.name, person.age);
-    println!("\n");
+    println!("\n");dasgfdsagfd
     slow_type(quote);
 
     Ok(())
