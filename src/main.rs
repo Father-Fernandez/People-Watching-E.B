@@ -4,7 +4,6 @@ use std::fs::File;
 use std::error::Error;
 use rand::seq::IndexedRandom;
 
-
 const DELAY: Duration = Duration::from_millis(75);
 const NUM_CHARACTERS: usize = 8;
 
@@ -23,15 +22,15 @@ enum People {
 
 //Allows for iterating through the list of enums, 'num_characters' constant determines size of 'People::ALL' array
 impl People {
-    const ALL: [People; NUM_CHARACTERS] = [
-        People::Candy,
-        People::Jeremy,
-        People::Greg,
-        People::Ted,
-        People::Safra,
-        People::Martha,
-        People::Jackson,
-        People::Flossy,
+    const ALL: [Self; NUM_CHARACTERS] = [
+        Self::Candy,
+        Self::Jeremy,
+        Self::Greg,
+        Self::Ted,
+        Self::Safra,
+        Self::Martha,
+        Self::Jackson,
+        Self::Flossy,
     ];
 }
 
@@ -39,14 +38,14 @@ impl People {
 impl std::fmt::Display for People{
     fn fmt(&self, f: &mut std::fmt::Formatter<'_>) -> std::fmt::Result{
         let s = match self {
-            People::Candy => "Candy",
-            People::Jeremy => "Jeremy",
-            People::Greg => "Greg",
-            People::Ted => "Ted",
-            People::Safra => "Safra",
-            People::Martha => "Martha",
-            People::Jackson => "Jackson",
-            People::Flossy => "Flossy",
+            Self::Candy => "Candy",
+            Self::Jeremy => "Jeremy",
+            Self::Greg => "Greg",
+            Self::Ted => "Ted",
+            Self::Safra => "Safra",
+            Self::Martha => "Martha",
+            Self::Jackson => "Jackson",
+            Self::Flossy => "Flossy",
         };
         f.write_str(s)
     }
@@ -72,8 +71,12 @@ fn slow_type(text: &str){
     }
 }
 
-fn random_select(people: &[Person]) -> Option<&Person> {
+fn random_person(people: &[Person]) -> Option<&Person> {
     people.choose(&mut rand::rng())
+}
+
+fn random_quote(people: &Person) -> Option<&str> {
+    people.quotes.choose(&mut rand::rng()).map(String::as_str)
 }
 
 //finally working!!
@@ -90,12 +93,15 @@ fn get_json(name: &str) -> Result<Vec<Person>, Box<dyn Error>>{
 }
 
 
-fn main() {
-    slow_type("Hello World!!");
+fn main() -> Result<(), Box<dyn Error>> {
+    let people = get_json("Characters.json")?;
 
-    //return all values
-    let data = get_json("Characters.json");
+    let person = random_person(&people).ok_or("no characters loaded")?;
+    let quote = random_quote(person).ok_or("that character has no quotes")?;
 
-    println!("{data:#?}")
+    println!("\nHey i'm {} been here for about {} years and i just wanna tell you", person.name, person.age);
+    println!("\n");
+    slow_type(quote);
 
+    Ok(())
 }
