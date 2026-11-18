@@ -2,6 +2,7 @@ use std::{io::{self, Write, BufReader}, thread, time::Duration};
 use serde::{Serialize, Deserialize};
 use std::fs::File;
 use std::error::Error;
+use rand::seq::IndexedRandom;
 
 
 const DELAY: Duration = Duration::from_millis(75);
@@ -71,8 +72,8 @@ fn slow_type(text: &str){
     }
 }
 
-fn random_select(){
-    todo!();
+fn random_select(people: &[Person]) -> Option<&Person> {
+    people.choose(&mut rand::rng())
 }
 
 //finally working!!
